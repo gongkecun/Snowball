@@ -21,7 +21,7 @@ class VectorSpaceModel(object):
         f_sentences = codecs.open(sentences_file, encoding='utf-8')
         documents = list()
         count = 0
-        print "Gathering sentences and removing stopwords"
+        print("Gathering sentences and removing stopwords")
         for line in f_sentences:
             line = re.sub('<[A-Z]+>[^<]+</[A-Z]+>', '', line)
 
@@ -38,5 +38,5 @@ class VectorSpaceModel(object):
         self.corpus = [self.dictionary.doc2bow(text) for text in documents]
         self.tf_idf_model = TfidfModel(self.corpus)
 
-        print len(documents), "documents red"
-        print len(self.dictionary), " unique tokens"
+        print(len(documents), "documents red")
+        print(len(self.dictionary), " unique tokens")
